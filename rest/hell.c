@@ -6,7 +6,7 @@
 /*   By: gloukas <gloukas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:53:36 by gloukas           #+#    #+#             */
-/*   Updated: 2023/03/02 16:15:40 by gloukas          ###   ########.fr       */
+/*   Updated: 2023/03/03 19:00:26 by gloukas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char *av[])
 	ptr.win = mlx_new_window(ptr.mlx, ptr.size.y * 64, ptr.size.x * 64,
 			"so_long");
 	ptr = display_all(&ptr);
-	// mlx_hook(ptr.win, 2, 0, my_key_funct, &ptr);
+	mlx_hook(ptr.win, 2, 0, my_key_funct, &ptr);
 	mlx_loop(ptr.mlx);
 	// system("leaks so_long");
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gloukas <gloukas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 08:56:41 by gloukas           #+#    #+#             */
-/*   Updated: 2023/03/02 16:19:04 by gloukas          ###   ########.fr       */
+/*   Updated: 2023/03/03 19:39:12 by gloukas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,69 +105,13 @@ t_mlx	display_all(t_mlx *ptr)
 int	my_key_funct(int keycode, t_mlx *ptr)
 {
 	if (keycode == 13)
-	{
-		if (ptr->area[ptr->p.px - 1][ptr->p.py] == '0' || ptr->area[ptr->p.px
-			- 1][ptr->p.py] == 'C')
-		{
-			if (ptr->area[ptr->p.px - 1][ptr->p.py] == 'C')
-				ptr->col--;
-			ptr->area[ptr->p.px - 1][ptr->p.py] = 'P';
-			ptr->area[ptr->p.px][ptr->p.py] = '0';
-		}
-		else if (ptr->area[ptr->p.px - 1][ptr->p.py] == 'E' && !ptr->col)
-		{
-			ft_printf("GAME OVER");
-			exit(1);
-		}
-	}
+		move_w(ptr);
 	else if (keycode == 0)
-	{
-		if (ptr->area[ptr->p.px][ptr->p.py - 1] == '0'
-			|| ptr->area[ptr->p.px][ptr->p.py - 1] == 'C')
-		{
-			if (ptr->area[ptr->p.px][ptr->p.py - 1] == 'C')
-				ptr->col--;
-			ptr->area[ptr->p.px][ptr->p.py - 1] = 'P';
-			ptr->area[ptr->p.px][ptr->p.py] = '0';
-		}
-		else if (ptr->area[ptr->p.px][ptr->p.py - 1] == 'E' && !ptr->col)
-		{
-			ft_printf("GAME OVER");
-			exit(1);
-		}
-	}
+		move_a(ptr);
 	else if (keycode == 1)
-	{
-		if (ptr->area[ptr->p.px + 1][ptr->p.py] == '0' || ptr->area[ptr->p.px
-			+ 1][ptr->p.py] == 'C')
-		{
-			if (ptr->area[ptr->p.px + 1][ptr->p.py] == 'C')
-				ptr->col--;
-			ptr->area[ptr->p.px + 1][ptr->p.py] = 'P';
-			ptr->area[ptr->p.px][ptr->p.py] = '0';
-		}
-		else if (ptr->area[ptr->p.px + 1][ptr->p.py] == 'E' && !ptr->col)
-		{
-			ft_printf("GAME OVER");
-			exit(1);
-		}
-	}
+		move_s(ptr);
 	else if (keycode == 2)
-	{
-		if (ptr->area[ptr->p.px][ptr->p.py + 1] == '0'
-			|| ptr->area[ptr->p.px][ptr->p.py + 1] == 'C')
-		{
-			if (ptr->area[ptr->p.px][ptr->p.py + 1] == 'C')
-				ptr->col--;
-			ptr->area[ptr->p.px][ptr->p.py + 1] = 'P';
-			ptr->area[ptr->p.px][ptr->p.py] = '0';
-		}
-		else if (ptr->area[ptr->p.px][ptr->p.py + 1] == 'E' && !ptr->col)
-		{
-			ft_printf("GAME OVER");
-			exit(1);
-		}
-	}
+		move_d(ptr);
 	*ptr = ft_loop(keycode, *ptr);
 	return (0);
 }

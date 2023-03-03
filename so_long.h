@@ -6,7 +6,7 @@
 /*   By: gloukas <gloukas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 08:51:18 by gloukas           #+#    #+#             */
-/*   Updated: 2023/03/02 16:16:59 by gloukas          ###   ########.fr       */
+/*   Updated: 2023/03/03 19:33:34 by gloukas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct s_mlx
 }				t_mlx;
 
 //check_base_map.c
+//good
 int				ft_check_param_and_exist(int ac, char **av);
 void			ft_check_if_rectangular(char *s, struct s_mlx ptr);
 void			ft_check_characters(struct s_mlx ptr);
@@ -103,6 +104,7 @@ void			ft_check_if_close(struct s_mlx ptr);
 void			ft_check_cep(struct s_mlx ptr);
 
 //help_check.c
+//good
 struct s_mlx	ft_counint(char *s);
 struct s_mlx	ft_count_collec(struct s_mlx ptr);
 struct s_mlx	rev_search_p(struct s_mlx ptr);
@@ -110,6 +112,7 @@ struct s_mlx	rev_search_e(struct s_mlx ptr);
 void			ft_free(char **t, int n);
 
 //check_path.c
+//good
 char			**ft_copy_area(struct s_mlx ptr);
 void			rev_path_c(char **s, int x, int y, struct s_mlx ptr);
 void			rev_path_e(char **s, int x, int y, struct s_mlx ptr);
@@ -117,6 +120,7 @@ void			rev_path_collec(char **s, struct s_mlx ptr);
 void			ft_check_path(struct s_mlx ptr);
 
 //main_check.c
+//good
 void			ft_check_extension(char *s);
 struct s_mlx	make_area(char *zone, struct s_mlx ptr);
 struct s_mlx	ft_check_all(int ac, char *av[]);
@@ -128,6 +132,10 @@ void			full_wall(t_mlx *ptr, t_loopy index);
 struct s_mlx	display_all(struct s_mlx *ptr);
 //test
 int				my_key_funct(int keycode, struct s_mlx *ptr);
+void			move_w(t_mlx *ptr);
+void			move_a(t_mlx *ptr);
+void			move_d(t_mlx *ptr);
+void			move_s(t_mlx *ptr);
 
 //waloo
 void			wingame(struct s_mlx *ptr);
