@@ -24,7 +24,7 @@ SRC_PRINT	=	ft_printf/ft_putchar.c ft_printf/ft_putstr.c ft_printf/ft_putnbr_add
 
 SRC_GNL		=	get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 SRC			=	rest/check_base_map.c rest/help_check.c rest/check_path.c \
-				rest/main_check.c rest/start_mlx.c rest/hell.c walo.c\
+				rest/main_check.c rest/start_mlx.c rest/hell.c rest/moves.c walo.c\
 				$(SRC_GNL)
 
 OBJ_LIB		=	$(SRC_LIB:.c=.o)

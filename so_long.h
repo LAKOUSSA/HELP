@@ -6,7 +6,7 @@
 /*   By: gloukas <gloukas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 08:51:18 by gloukas           #+#    #+#             */
-/*   Updated: 2023/03/03 19:33:34 by gloukas          ###   ########.fr       */
+/*   Updated: 2023/03/13 12:19:25 by gloukas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,10 @@ void			full_wall(t_mlx *ptr, t_loopy index);
 struct s_mlx	display_all(struct s_mlx *ptr);
 //test
 int				my_key_funct(int keycode, struct s_mlx *ptr);
-void			move_w(t_mlx *ptr);
-void			move_a(t_mlx *ptr);
-void			move_d(t_mlx *ptr);
-void			move_s(t_mlx *ptr);
+void			move_w(t_mlx *ptr, int *move);
+void			move_a(t_mlx *ptr, int *move);
+void			move_d(t_mlx *ptr, int *move);
+void			move_s(t_mlx *ptr, int *move);
 
 //waloo
 void			wingame(struct s_mlx *ptr);

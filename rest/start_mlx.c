@@ -6,7 +6,7 @@
 /*   By: gloukas <gloukas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 08:56:41 by gloukas           #+#    #+#             */
-/*   Updated: 2023/03/03 19:39:12 by gloukas          ###   ########.fr       */
+/*   Updated: 2023/03/13 12:22:50 by gloukas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,21 @@ t_mlx	display_all(t_mlx *ptr)
 
 int	my_key_funct(int keycode, t_mlx *ptr)
 {
-	if (keycode == 13)
-		move_w(ptr);
-	else if (keycode == 0)
-		move_a(ptr);
-	else if (keycode == 1)
-		move_s(ptr);
-	else if (keycode == 2)
-		move_d(ptr);
+	static int	i;
+
+	if (keycode == 13 || keycode == 126)
+		move_w(ptr, &i);
+	else if (keycode == 0 || keycode == 123)
+		move_a(ptr, &i);
+	else if (keycode == 1 || keycode == 125)
+		move_s(ptr, &i);
+	else if (keycode == 2 || keycode == 124)
+		move_d(ptr, &i);
+	else if (keycode == 53)
+	{
+		ft_printf("EXIT\n");
+		exit(0);
+	}
 	*ptr = ft_loop(keycode, *ptr);
 	return (0);
 }

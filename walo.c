@@ -22,8 +22,7 @@
 
 t_mlx	ft_loop(int keycode, t_mlx ptr)
 {
-	t_loopy		index;
-	static int	gl;
+	t_loopy	index;
 
 	index.i = 0;
 	while (index.i < ptr.size.x)
@@ -31,48 +30,21 @@ t_mlx	ft_loop(int keycode, t_mlx ptr)
 		index.j = 0;
 		while (index.j < ptr.size.y)
 		{
-			if (ptr.area[index.i][index.j] == 'C')
-				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.player, index.j
-						* 64, index.i * 64);
-			else if (ptr.area[index.i][index.j] == 'P')
+			if (ptr.area[index.i][index.j] == 'P')
 			{
-				if (gl)
-				{
-					if ((keycode == 13 && ptr.area[ptr.p.px
-							- 1][ptr.p.py] != '1') || (keycode == 0
-							&& ptr.area[ptr.p.px][ptr.p.py - 1] != '1')
-						|| (keycode == 1 && ptr.area[ptr.p.px
-							+ 1][ptr.p.py] != '1') || (keycode == 2
-							&& ptr.area[ptr.p.px][ptr.p.py + 1] != '1'))
-					{
-						mlx_put_image_to_window(ptr.mlx, ptr.win,
-								ptr.tasswera21, index.j * 64, index.i * 64);
-						gl = 0;
-					}
-				}
-				else if (!gl)
-				{
-					if ((keycode == 13 && ptr.area[ptr.p.px
-							- 1][ptr.p.py] != '1') || (keycode == 0
-							&& ptr.area[ptr.p.px][ptr.p.py - 1] != '1')
-						|| (keycode == 1 && ptr.area[ptr.p.px
-							+ 1][ptr.p.py] != '1') || (keycode == 2
-							&& ptr.area[ptr.p.px][ptr.p.py + 1] != '1'))
-					{
-						mlx_put_image_to_window(ptr.mlx, ptr.win,
-								ptr.tasswera22, index.j * 64, index.i * 64);
-						gl = 1;
-					}
-				}
+				if ((keycode == 13 && ptr.area[ptr.p.px - 1][ptr.p.py] != '1')
+					|| (keycode == 0 && ptr.area[ptr.p.px][ptr.p.py - 1] != '1')
+					|| (keycode == 1 && ptr.area[ptr.p.px + 1][ptr.p.py] != '1')
+					|| (keycode == 2 && ptr.area[ptr.p.px][ptr.p.py
+						+ 1] != '1'))
+					mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.player,
+							index.j * 64, index.i * 64);
 			}
 			else if (ptr.area[index.i][index.j] == 'E')
-				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.tasswera3, index.j
+				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.exit_0, index.j
 						* 64, index.i * 64);
 			else if (ptr.area[index.i][index.j] == '0')
-				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.tasswera4, index.j
-						* 64, index.i * 64);
-			else
-				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.tasswera5, index.j
+				mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.space, index.j
 						* 64, index.i * 64);
 			index.j++;
 		}
@@ -80,14 +52,8 @@ t_mlx	ft_loop(int keycode, t_mlx ptr)
 	}
 	ptr = rev_search_e(ptr);
 	if (!ptr.col)
-	{
-		ptr.exit_1 = mlx_xpm_file_to_image(ptr.mlx, "textures/exit_1.xpm",
-				&ptr.h, &ptr.w);
-		mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.tasswera4, ptr.e.ey * 64,
-				ptr.e.ex * 64);
 		mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.exit_1, ptr.e.ey * 64,
 				ptr.e.ex * 64);
-	}
 	ptr = rev_search_p(ptr);
 	return (ptr);
 }
